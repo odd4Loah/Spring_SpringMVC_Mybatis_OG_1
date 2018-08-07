@@ -54,9 +54,12 @@ public class TestUser {
     @Test
     public void testDeleteUser() throws Exception {
         logger.debug("开始删除");
-        for (int i = 18; i < 31; i++) {
-            userDao.deleteUser(i);
-        }
+
+        User de_user = new User();
+
+        de_user.setId(31);
+
+        userDao.deleteUser(de_user);
         logger.debug("删除成功！！！");
     }
 
@@ -104,25 +107,25 @@ public class TestUser {
 
     }
 
-    @Test
-    public void testFindAllUsersPage() throws Exception {
-        logger.debug("开始查询总页数");
-        Page p = new Page();
-        p.setStart(2);
-        p.setCount(3);
-        List<User> us = userDao.findAllUsers(p);
-        for (User u :
-                us) {
-            logger.debug(u.getUsername());
-        }
-    }
-
-    @Test
-    public void testListPage() throws Exception {
-        logger.debug("查询总数");
-        int total_page = userDao.total();
-        logger.debug("查询成功！！！");
-        logger.debug("一共有("+total_page+")条数据~");
-    }
+//    @Test
+//    public void testFindAllUsersPage() throws Exception {
+//        logger.debug("开始查询总页数");
+//        Page p = new Page();
+//        p.setStart(2);
+//        p.setCount(3);
+//        List<User> us = userDao.findAllUsers(p);
+//        for (User u :
+//                us) {
+//            logger.debug(u.getUsername());
+//        }
+//    }
+//
+//    @Test
+//    public void testListPage() throws Exception {
+//        logger.debug("查询总数");
+//        int total_page = userDao.total();
+//        logger.debug("查询成功！！！");
+//        logger.debug("一共有("+total_page+")条数据~");
+//    }
 
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>用AJAX以JSON方式获取数据</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="button" value="通过AJAX获取一个Hero对象---" id="sender">
+
+    <div id="messageDiv"></div>
+
+    <script>
+        $('#sender').click(function(){
+            var url="getOneUser";
+            $.post(
+                url,
+                function(data) {
+                    var json = JSON.parse(data);
+                    var id = json.user.id;
+                    var username =json.user.username;
+                    var qq =json.user.qq;
+                    var job =json.user.job;
+                    var school =json.user.school;
+                    var url =json.user.url;
+
+                    $("#messageDiv")
+                        .html("用户id："+ id + "<br>用户姓名:" +username + "<br>QQ:" + qq
+                                       + "<br>职位:" +job+ "<br>学校:" +school+ "<br>网址:" + url);
+                    console.log(data);
+
+                });
+        });
+    </script>
+
+
+
+</body>
+</html>

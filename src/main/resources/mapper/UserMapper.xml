@@ -12,16 +12,12 @@
         <result property="school" column="school"/>
         <result property="url" column="url"/>
     </resultMap>
-    
-    <select id="total" resultType="int">
-        SELECT COUNT(*) FROM user
-    </select>
-    
+
     <select id="findAllUsers" resultMap="user">
         SELECT * FROM user
-        <if test="start!=null and count!=null">
-            limit #{start},#{count}
-        </if>
+        <!--<if test="start!=null and count!=null">-->
+            <!--limit #{start},#{count}-->
+        <!--</if>-->
     </select>
 
     <select id="findUserById" parameterType="int" resultMap="user">

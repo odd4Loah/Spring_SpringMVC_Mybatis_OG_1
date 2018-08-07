@@ -12,9 +12,14 @@
 
 <div style="width: 500px; margin:0 auto; text-align: center;">
     <div style="text-align: center; margin-top: 40px;">
-        <form method="post" action="../user/${c.id}">
-            分类名称：<input name="username" value="${c.username}" type="text"> <br><br>
-            <input type="submit" value="修改分类">
+        <form method="post" action="../user/${u.id}">
+            用户姓名：<input type="text" name="username" value="${u.username}"> <br><br>
+            用户QQ:  <input type="number" name="qq" value="${u.qq}"> <br><br>
+            用户职业：<input type="text" name="job" value="${u.job}"> <br><br>
+            用户学校：<input type="text" name="school" value="${u.school}"> <br><br>
+            用户网址：<input type="text" name="url" value="${u.url}"> <br><br>
+
+            <input type="submit" value="修改用户">
         </form>
     </div>
 </div>

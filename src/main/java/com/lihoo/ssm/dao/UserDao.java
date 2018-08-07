@@ -12,7 +12,7 @@ public interface UserDao {
     void addUser(User user) throws Exception;
 //
 ////    删除用户信息
-    void deleteUser(int id) throws Exception;
+    void deleteUser(User user) throws Exception;
 //
 ////    更改用户信息
     void updateUser(User user) throws Exception;
@@ -26,9 +26,9 @@ public interface UserDao {
 ////    查找用户列表
     List<User> findAllUsers() throws Exception;
 
-    List<User> findAllUsers(Page page) throws Exception;
-
-////    查询用户总人数
-    int total() throws Exception;
+//    List<User> findAllUsers(Page page) throws Exception;
+//
+//////    查询用户总人数
+//    int total() throws Exception;
 
 }

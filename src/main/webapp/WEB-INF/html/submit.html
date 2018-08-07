@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>用AJAX以JSON方式提交数据</title>
+    <!--<script type="text/javascript" src="/WEB-INF/js/jquery.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+<form style="text-align: center; margin: 200px">
+    id:  <input type="text" id="id" value="123"><br>
+    名称：<input type="text" id="username" value="user xxx"><br>
+    QQ:  <input type="number" id="qq" value="1162553772"><br>
+    职业：<input type="text" id="job" value="歌手"><br>
+    学校：<input type="text" id="school" value="勇度大学"><br>
+    网址：<input type="text" id="url" value="www.uhla.com"><br>
+
+    <input type="button" value="提交" id="sender">
+</form>
+<div id="messageDiv"></div>
+
+<script>
+    $('#sender').click(function(){
+        var id=document.getElementById('id').value;
+        var username=document.getElementById('username').value;
+        var qq=document.getElementById('qq').value;
+        var job=document.getElementById('job').value;
+        var school=document.getElementById('school').value;
+        var url=document.getElementById('url').value;
+
+        var user={"id":id,"username":username,"qq":qq,
+            "job":job,"school":school,"url":url};
+
+        var jsonData = JSON.stringify(user);
+        var page="submitUser";
+
+        $.ajax({
+            type:"post",
+            url: page,
+            data:jsonData,
+            dataType:"json",
+            contentType : "application/json;charset=UTF-8",
+            success: function(result){
+            }
+        });
+        console.log(jsonData);
+        alert("提交成功，请在Tomcat控制台查看服务端接收到的数据");
+
+    });
+</script>
+</body>
+</html>

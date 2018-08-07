@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(int id) throws Exception {
-        userDao.deleteUser(id);
+    public void deleteUser(User user) throws Exception {
+        userDao.deleteUser(user);
     }
 
     @Override
@@ -54,15 +54,15 @@ public class UserServiceImpl implements UserService {
         return userDao.findAllUsers();
     }
 
-    @Override
-    public List<User> findAllUsers(Page page) throws Exception {
-        return userDao.findAllUsers(page);
-    }
-
-    @Override
-    public int total() throws Exception {
-        return userDao.total();
-    }
+//    @Override
+//    public List<User> findAllUsers(Page page) throws Exception {
+//        return userDao.findAllUsers(page);
+//    }
+//
+//    @Override
+//    public int total() throws Exception {
+//        return userDao.total();
+//    }
 
 
 
